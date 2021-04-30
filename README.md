@@ -14,5 +14,5 @@ This is a Readme for the "News Analyzer Flutter".  This project is built using F
 
 ## Screenshot
 
-![Image](./images/image6.jpg)
-![Image](./images/image7.jpg)
+![Image](./ScreenShots/image6.jpg)
+![Image](./ScreenShots/image7.jpg)
