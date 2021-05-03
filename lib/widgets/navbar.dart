@@ -19,7 +19,7 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
       this.noShadow = false,
       this.bgColor = const Color.fromARGB(255, 15, 185, 130)});
 
-  final double _prefferedHeight = 40.0;
+  final double _prefferedHeight = 50.0;
 
   @override
   _NavbarState createState() => _NavbarState();

@@ -2,8 +2,8 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-//import 'package:path/path.dart' as Path;
-//import 'package:file_picker/file_picker.dart';
+import 'package:path/path.dart' as Path;
+import 'package:file_picker/file_picker.dart';
 import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
@@ -37,19 +37,17 @@ class HomePageState extends State<Home> {
     return (darkmode) ? Colors.black87 : MaterialColors.bgColorScreen;
   }
 
-  /*void _openGallery(BuildContext context) async {
-    FilePicker f;
-    f.pickFiles(
-        type: FileType.custom,
-        allowMultiple: false,
-        allowedExtensions: ['pdf'],
-        withData: true);
+  void _openGallery(BuildContext context) async {
+    String pickedFile = await FilePicker.getFilePath(
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
+    ).toString();
     setState(() {
-      //imageFile = File("pickedFile.path");
+      imageFile = File(pickedFile);
     });
 
     Navigator.pop(context);
-  }*/
+  }
 
   Future _showChoiceDialog(BuildContext context) {
     return showDialog(
@@ -69,7 +67,7 @@ class HomePageState extends State<Home> {
                   ),
                   ListTile(
                     onTap: () {
-                      // _openGallery(context);
+                      _openGallery(context);
                     },
                     title: Text("Gallery"),
                     leading: Icon(

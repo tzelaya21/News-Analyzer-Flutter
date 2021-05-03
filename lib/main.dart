@@ -24,7 +24,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "AQI-Bosch",
+        title: "News Analyzer",
         debugShowCheckedModeBanner: false,
         initialRoute: (user != "") ? "/home" : "/login",
         routes: <String, WidgetBuilder>{
