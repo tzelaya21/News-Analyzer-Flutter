@@ -13,6 +13,14 @@ This is a Readme for the "News Analyzer Flutter".  This project is built using F
 - App provides an analysis of the main sentiment of the document
 
 ## Screenshot
-
-![Image](./ScreenShots/image6.jpg)
-![Image](./ScreenShots/image7.jpg)
+#### Login-Screen Light Theme
+![Image](./ScreenShots/1-Login(light).jpg)
+![Image](./ScreenShots/2-Login(dark).jpg)
+![Image](./ScreenShots/3-Sign-Up(light).jpg)
+![Image](./ScreenShots/4-Sign-Up(dark).jpg)
+![Image](./ScreenShots/5-Drawer(light).jpg)
+![Image](./ScreenShots/6-Drawer(dark).jpg)
+![Image](./ScreenShots/7-Home(light).jpg)
+![Image](./ScreenShots/8-Home(dark).jpg)
+![Image](./ScreenShots/9-Setting(light).jpg)
+![Image](./ScreenShots/10-Settig(dark).jpg)
