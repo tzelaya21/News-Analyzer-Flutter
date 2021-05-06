@@ -27,6 +27,12 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
     super.initState();
   }
 
+  _getimage() {
+    return (darkmode)
+        ? AssetImage("assets/img/newspaper-white.png")
+        : AssetImage("assets/img/newspaper-black.png");
+  }
+
   _getuserpreferneces() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {
@@ -587,7 +593,9 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
                         child: Image(
                       width: MediaQuery.of(context).size.width * .2,
                       height: MediaQuery.of(context).size.width * .2,
-                      image: AssetImage("assets/img/newspaper.png"),
+                      image: (darkmode != null)
+                          ? _getimage()
+                          : AssetImage("assets/img/newspaper-black.png"),
                       fit: BoxFit.cover,
                     )),
                     SizedBox(height: height * .03),

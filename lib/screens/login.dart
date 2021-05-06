@@ -508,6 +508,12 @@ class _LoginPageState extends State<Login> {
     );
   }
 
+  _getimage() {
+    return (darkmode)
+        ? AssetImage("assets/img/newspaper-white.png")
+        : AssetImage("assets/img/newspaper-black.png");
+  }
+
   @override
   Widget build(BuildContext context) {
     _getuserpreferneces();
@@ -531,7 +537,9 @@ class _LoginPageState extends State<Login> {
                           child: Image(
                         width: MediaQuery.of(context).size.width * .2,
                         height: MediaQuery.of(context).size.width * .2,
-                        image: AssetImage("assets/img/newspaper.png"),
+                        image: (darkmode != null)
+                            ? _getimage()
+                            : AssetImage("assets/img/newspaper-black.png"),
                         fit: BoxFit.cover,
                       )),
                       SizedBox(height: height * .03),
