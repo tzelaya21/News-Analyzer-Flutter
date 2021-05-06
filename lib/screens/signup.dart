@@ -571,11 +571,6 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
       backgroundColor:
           (darkmode != null) ? _getcolor() : MaterialColors.bgColorScreen,
       extendBodyBehindAppBar: true,
-      /*appBar: Navbar(
-          title: "Sign-up",
-          backButton: true,
-          bgColor: (darkmode != null) ? _getappbarcolor() : null,
-        ),*/
       body: Container(
         height: height,
         child: Stack(

@@ -8,7 +8,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="News Analyzer"
-        android:icon="@mipmap/newspaper.png">
+        android:icon="@mipmap/newspaper_black_logo_1">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

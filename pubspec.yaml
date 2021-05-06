@@ -34,7 +34,9 @@ dependencies:
   firebase_storage: ^7.0.0
   native_pdf_view: ^3.8.0
   file_picker: ^1.1.1
+  http: ^0.12.2
   image_picker:
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -59,7 +61,8 @@ flutter:
   assets:
     - assets/img/setting-icon-white.png
     - assets/img/setting-icon-black.png
-    - assets/img/newspaper.png
+    - assets/img/newspaper-white.png
+    - assets/img/newspaper-black.png
     - assets/img/person-avatar.png
     - assets/img/wp4009079.jpg
     - assets/img/bg.png

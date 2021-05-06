@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:path/path.dart' as Path;
+//import 'package:path/path.dart' as Path;
 import 'package:file_picker/file_picker.dart';
 import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
@@ -33,11 +33,20 @@ class HomePageState extends State<Home> {
     });
   }
 
+  _getimage() {
+    return (darkmode)
+        ? AssetImage("assets/img/newspaper-white.png")
+        : AssetImage("assets/img/newspaper-black.png");
+  }
+
   _getcolor() {
-    return (darkmode) ? Colors.black87 : MaterialColors.bgColorScreen;
+    return (darkmode)
+        ? Color.fromRGBO(30, 45, 55, 1)
+        : MaterialColors.bgColorScreen;
   }
 
   void _openGallery(BuildContext context) async {
+    // ignore: await_only_futures
     String pickedFile = await FilePicker.getFilePath(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
@@ -115,43 +124,104 @@ class HomePageState extends State<Home> {
   }
 
   Widget _addDocument() {
-    return InkWell(
-        onTap: () => {
-              if (_isprocessing) {} else {_showChoiceDialog(context)}
-            },
-        child: Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.symmetric(vertical: 15),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                boxShadow: (darkmode != null)
-                    ? _getshadowcolor()
-                    : <BoxShadow>[
-                        BoxShadow(
-                            color: Colors.grey.shade200,
-                            offset: Offset(2, 4),
-                            blurRadius: 5,
-                            spreadRadius: 2)
-                      ],
-                color: Color.fromARGB(255, 15, 185, 130)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                  child: Icon(
-                    Icons.camera_alt_outlined,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-                Text(
-                  'Select Profile Picture',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ],
-            )));
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+      Padding(
+        padding: EdgeInsets.fromLTRB(12, 0, 12, 10),
+        child: InkWell(
+            onTap: () => {
+                  if (_isprocessing) {} else {_showChoiceDialog(context)}
+                },
+            child: Container(
+                width: MediaQuery.of(context).size.width * .4,
+                height: MediaQuery.of(context).size.width * 0.12,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: (darkmode != null)
+                        ? _getshadowcolor()
+                        : <BoxShadow>[
+                            BoxShadow(
+                                color: Colors.grey.shade200,
+                                offset: Offset(2, 4),
+                                blurRadius: 5,
+                                spreadRadius: 2)
+                          ],
+                    color: Color.fromARGB(255, 15, 185, 130)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        'Select New Article',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                    ),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      buttonHeight: 30.0,
+                    )
+                  ],
+                ))),
+      ),
+      Padding(
+        padding: EdgeInsets.fromLTRB(12, 0, 12, 10),
+        child: InkWell(
+            onTap: () => {
+                  if (_isprocessing) {} else {_showChoiceDialog(context)}
+                },
+            child: Container(
+                width: MediaQuery.of(context).size.width * .4,
+                height: MediaQuery.of(context).size.width * 0.12,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: (darkmode != null)
+                        ? _getshadowcolor()
+                        : <BoxShadow>[
+                            BoxShadow(
+                                color: Colors.grey.shade200,
+                                offset: Offset(2, 4),
+                                blurRadius: 5,
+                                spreadRadius: 2)
+                          ],
+                    color: Color.fromARGB(255, 15, 185, 130)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Icon(
+                        Icons.file_upload,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        'Upload',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                    ),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      buttonHeight: 30.0,
+                    )
+                  ],
+                ))),
+      ),
+    ]);
   }
 
   @override
@@ -173,7 +243,9 @@ class HomePageState extends State<Home> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/img/newspaper.png"),
+                    image: (darkmode != null)
+                        ? _getimage()
+                        : AssetImage("assets/img/newspaper-black.png"),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -181,17 +253,36 @@ class HomePageState extends State<Home> {
                 child: Column(children: <Widget>[
                   _searchbar(),
                   _search(),
-                  Text("Hello"),
+                  _displayDocuments(),
                   _addDocument(),
-                  FlatButton(
-                    child: Text(
-                      'Generate PDF',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () => {},
-                    color: Colors.blue,
-                  )
                 ]))));
+  }
+
+  _getDocs() {
+    List<Widget> childs;
+    for (int i = 0; i < 10; i++) {
+      childs.add(Text(
+        'Hi ${i}',
+      ));
+    }
+    return childs;
+  }
+
+  Widget _displayDocuments() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.94,
+      height: MediaQuery.of(context).size.height * 0.64,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+        border: Border.all(
+          color: Color.fromRGBO(15, 185, 130, 1),
+          width: 2.0,
+          style: BorderStyle.solid,
+        ),
+      ),
+      child: _getDocs(),
+    );
   }
 
   Widget _searchbar() {
@@ -217,12 +308,19 @@ class HomePageState extends State<Home> {
         ));
   }
 
+  _res() async {
+    setState(() {
+      _isprocessing = !_isprocessing;
+    });
+  }
+
   Widget _search() {
     return InkWell(
         onTap: () async {
+          await _res();
           if (_isprocessing) {
           } else {
-            Navigator.pushReplacementNamed(context, "/home");
+            //Navigator.pushReplacementNamed(context, "/home");
           }
         },
         child: Container(
