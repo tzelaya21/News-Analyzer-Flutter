@@ -63,9 +63,7 @@ flutter:
     - assets/img/setting-icon-black.png
     - assets/img/newspaper-white.png
     - assets/img/newspaper-black.png
-    - assets/img/person-avatar.png
-    - assets/img/wp4009079.jpg
-    - assets/img/bg.png
+    - assets/img/pdficon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

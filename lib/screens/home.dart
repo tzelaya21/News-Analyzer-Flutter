@@ -8,6 +8,7 @@ import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:material_kit_flutter/widgets/card-small.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -259,13 +260,60 @@ class HomePageState extends State<Home> {
   }
 
   _getDocs() {
-    List<Widget> childs;
-    for (int i = 0; i < 10; i++) {
-      childs.add(Text(
-        'Hi ${i}',
-      ));
+    List<Widget> childs = new List();
+    for (int i = 0; i < 20;) {
+      if (i < 20 && ((i + 1) >= 20)) {
+        childs.add(Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              CardSmall(
+                title: "PDF no. " + i.toString(),
+                cta: "Hello",
+              ),
+            ]));
+        i += 1;
+      } else if (((i + 1) < 20) && ((i + 2) >= 20)) {
+        childs.add(Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              CardSmall(
+                title: "PDF no. " + i.toString(),
+                cta: "Hello",
+              ),
+              CardSmall(
+                title: "PDF no. " + (i + 1).toString(),
+                cta: "Hello",
+              ),
+            ]));
+        i += 2;
+      } else if ((i + 2) < 20) {
+        childs.add(Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              CardSmall(
+                title: "PDF no. " + i.toString(),
+                cta: "Hello",
+              ),
+              CardSmall(
+                title: "PDF no. " + (i + 1).toString(),
+                cta: "Hello",
+              ),
+              CardSmall(
+                title: "PDF no. " + (i + 2).toString(),
+                cta: "Hello",
+              )
+            ]));
+        i += 3;
+      }
     }
-    return childs;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: childs,
+    );
   }
 
   Widget _displayDocuments() {
@@ -281,7 +329,7 @@ class HomePageState extends State<Home> {
           style: BorderStyle.solid,
         ),
       ),
-      child: _getDocs(),
+      child: SingleChildScrollView(child: _getDocs()),
     );
   }
 
