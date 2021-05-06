@@ -268,7 +268,7 @@ class HomePageState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               CardSmall(
-                title: "PDF no. " + i.toString(),
+                title: "PDF no. " + (i + 1).toString(),
                 cta: "Hello",
               ),
             ]));
@@ -279,11 +279,11 @@ class HomePageState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               CardSmall(
-                title: "PDF no. " + i.toString(),
+                title: "PDF no. " + (i + 1).toString(),
                 cta: "Hello",
               ),
               CardSmall(
-                title: "PDF no. " + (i + 1).toString(),
+                title: "PDF no. " + (i + 2).toString(),
                 cta: "Hello",
               ),
             ]));
@@ -295,15 +295,15 @@ class HomePageState extends State<Home> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               CardSmall(
-                title: "PDF no. " + i.toString(),
-                cta: "Hello",
-              ),
-              CardSmall(
                 title: "PDF no. " + (i + 1).toString(),
                 cta: "Hello",
               ),
               CardSmall(
                 title: "PDF no. " + (i + 2).toString(),
+                cta: "Hello",
+              ),
+              CardSmall(
+                title: "PDF no. " + (i + 3).toString(),
                 cta: "Hello",
               )
             ]));
